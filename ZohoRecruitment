@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class ZohoPattern {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scan = new Scanner(System.in);
+		String input  = scan.next();
+		int middle = input.length()/2;
+		
+		for(int itr = 0 ; itr < input.length() ; itr++) {
+			
+			for(int spce = 0 ; spce < input.length() - itr-1; spce++) {
+				
+				System.out.print(" ");
+			}
+			
+			System.out.println(getSubstring(input,middle,itr+1));
+			
+			
+		}
+
+	}
+	
+	public static char[] getSubstring(String str, int index, int len) {
+		
+		String temp = "";
+		for(int itr = index; itr < (len+index) && (itr < str.length()); itr++) {
+			
+			temp+= str.charAt(itr);
+		}
+		
+		if(len+index > str.length()) {
+			int remain = (len+index)-str.length();
+		
+			for(int itr = 0 ; itr < remain ; itr++)
+				temp+= str.charAt(itr);
+		}
+		
+		return temp.toCharArray();
+	}
+
+}
